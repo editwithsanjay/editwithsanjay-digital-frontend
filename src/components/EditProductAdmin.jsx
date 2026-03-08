@@ -14,6 +14,7 @@ import successAlert from '../utils/SuccessAlert';
 import { useEffect } from 'react';
 import uploadToR2 from '../utils/UploadR2';
 import toast from 'react-hot-toast';
+import transformYouTubeUrl from '../utils/transformYouTubeUrl';
 
 const EditProductAdmin = ({ close, data: propsData, fetchProductData }) => {
   const [data, setData] = useState({
@@ -421,7 +422,7 @@ const EditProductAdmin = ({ close, data: propsData, fetchProductData }) => {
                   placeholder='Enter video embed URL'
                   value={data?.more_details?.embedVideo || ""}
                   onChange={(e) => {
-                    const value = e.target.value
+                    const value = transformYouTubeUrl(e.target.value)
                     setData((preve) => {
                       return {
                         ...preve,

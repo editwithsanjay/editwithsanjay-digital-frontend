@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 import { FaShare } from 'react-icons/fa6';
 import FreeDownloadButton from './FreeDownloadButton';
 
-const CardProduct = ({ data }) => {
+const CardProduct = ({ data, showVideo = false }) => {
   const url = `/product/${valideURLConvert(data.name)}-${data._id}`;
   const [loading, setLoading] = useState(false);
 
@@ -30,11 +30,24 @@ const CardProduct = ({ data }) => {
   return (
     <Link to={url} className="group border border-gray-200 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-500 grid gap-2 rounded-xl cursor-pointer bg-white overflow-hidden h-full flex-shrink-0 w-full min-w-[150px] md:min-w-[240px] max-w-[300px] mx-auto">
       <div className="relative aspect-video w-full overflow-hidden bg-gray-50 border-b border-gray-100">
-        <img
-          src={data.image[0]}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
-          alt={data.name}
-        />
+        {showVideo && data?.more_details?.embedVideo ? (
+          <div
+            className="w-full h-full pointer-events-none"
+            dangerouslySetInnerHTML={{
+              __html: data.more_details.embedVideo
+                .replace(/src="([^"]+)"/, (match, src) => {
+                  const separator = src.includes('?') ? '&' : '?';
+                  return `src="${src}${separator}autoplay=1&mute=1"`;
+                })
+            }}
+          />
+        ) : (
+          <img
+            src={data.image[0]}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+            alt={data.name}
+          />
+        )}
         {Boolean(data.discount) && (
           <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-0.5 text-[10px] font-black rounded shadow-sm uppercase tracking-tighter z-10">
             {data.discount}% OFF

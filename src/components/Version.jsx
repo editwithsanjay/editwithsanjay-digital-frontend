@@ -49,7 +49,7 @@ function Version() {
   return (
     <div style={{fontSize:"12px",color:"white"}}>
         <center>
-            <b>version : {cur_version.version}, Last updated on 13-02-2025</b>
+            <b>version : {cur_version.version}, Last updated on 08-03-2026</b>
         </center>
          
         <div style={{textAlign:"left"}}>

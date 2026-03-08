@@ -60,22 +60,22 @@ const Footer = () => {
               {/* Branded Social Links */}
               <li>
                 <div className="flex items-center gap-4 mt-4 py-2 border-t border-gray-700/30">
-                  <a href="#" className="text-[#E4405F] hover:scale-110 transition-transform duration-300" title="Instagram">
+                  <a href="https://www.instagram.com/editwithsanjay" className="text-[#E4405F] hover:scale-110 transition-transform duration-300" title="Instagram">
                     <FaInstagram size={18} />
                   </a>
-                  <a href="#" className="text-[#0A66C2] hover:scale-110 transition-transform duration-300" title="LinkedIn">
+                  <a href="https://www.linkedin.com/in/attelli-sanjay-kumar" className="text-[#0A66C2] hover:scale-110 transition-transform duration-300" title="LinkedIn">
                     <FaLinkedinIn size={18} />
                   </a>
-                  <a href="#" className="text-[#FF0000] hover:scale-110 transition-transform duration-300" title="YouTube">
+                  <a href="https://www.youtube.com/@editwithsanjay" className="text-[#FF0000] hover:scale-110 transition-transform duration-300" title="YouTube">
                     <FaYoutube size={18} />
                   </a>
-                  <a href="#" className="text-[#25D366] hover:scale-110 transition-transform duration-300" title="WhatsApp">
+                  <a href="https://wa.me/918977300290" className="text-[#25D366] hover:scale-110 transition-transform duration-300" title="WhatsApp">
                     <FaWhatsapp size={18} />
                   </a>
-                  <a href="#" className="text-[#1769FF] hover:scale-110 transition-transform duration-300" title="Behance">
+                  <a href="https://www.behance.net/attellisanjay" className="text-[#1769FF] hover:scale-110 transition-transform duration-300" title="Behance">
                     <FaBehance size={18} />
                   </a>
-                  <a href="#" className="text-[#181717] hover:scale-110 transition-transform duration-300" title="GitHub">
+                  <a href="https://github.com/sanjayattelli29" className="text-[#181717] hover:scale-110 transition-transform duration-300" title="GitHub">
                     <FaGithub size={18} />
                   </a>
                 </div>
