@@ -1,6 +1,6 @@
 # BuyWithSanjay - E-Commerce Platform for Animation Templates
 
-Welcome to **BuyWithSanjay**, an online e-commerce platform for purchasing high-quality animation templates. This platform is built using modern web technologies and hosted on **Netlify** with a **serverless backend** powered by **AWS Lambda**. The database and cloud storage are managed with **MongoDB** and **Cloudinary**.
+Welcome to **BuyWithSanjay**, an online e-commerce platform for purchasing high-quality animation templates. This platform is built using modern web technologies and hosted on **Netlify** with a **serverless backend** powered by **AWS Lambda**. The database and cloud storage are managed with **MongoDB** and **Cloudflare R2**.
 
 ## 🌐 Live Demo
 [**Visit Live Website**](https://buywithsanjay.netlify.app)
@@ -9,7 +9,7 @@ Welcome to **BuyWithSanjay**, an online e-commerce platform for purchasing high-
 - 🔹 **Browse & Purchase** animation templates
 - 🔹 **Secure Authentication & User Accounts**
 - 🔹 **Fast and Scalable Backend with AWS Lambda**
-- 🔹 **Cloud-based Storage with Cloudinary**
+- 🔹 **Cloud-based Storage with Cloudflare R2**
 - 🔹 **MongoDB Database for Product & User Management**
 - 🔹 **Seamless Payment Gateway Integration**
 - 🔹 **Responsive & Intuitive UI**
@@ -25,7 +25,7 @@ Welcome to **BuyWithSanjay**, an online e-commerce platform for purchasing high-
 - **AWS Lambda** (Serverless API)
 - **Express.js** (For API routes)
 - **MongoDB** (For Database Management)
-- **Cloudinary** (For Image and Asset Storage)
+- **Cloudflare R2** (For Image and Asset Storage)
 
 ### Additional Integrations:
 - **Stripe** (For secure payments)

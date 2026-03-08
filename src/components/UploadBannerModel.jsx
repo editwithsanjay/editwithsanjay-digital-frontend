@@ -4,7 +4,7 @@ import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
 import toast from 'react-hot-toast'
 import AxiosToastError from '../utils/AxiosToastError';
-import uploadToCloudinary from '../utils/Cloudinary';
+import uploadToR2 from '../utils/UploadR2';
 
 const UploadBannerModel = ({ close, fetchData }) => {
     const [data, setData] = useState({
@@ -59,7 +59,7 @@ const UploadBannerModel = ({ close, fetchData }) => {
 
         try {
             toast.loading("Uploading image...", { id: "upload" })
-            const response = await uploadToCloudinary(file)
+            const response = await uploadToR2(file)
             toast.success("Uploaded", { id: "upload" })
 
             setData((preve) => {

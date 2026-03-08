@@ -6,7 +6,7 @@ import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
 import toast from 'react-hot-toast';
 import AxiosToastError from '../utils/AxiosToastError';
-import uploadToCloudinary from '../utils/Cloudinary';
+import uploadToR2 from '../utils/UploadR2';
 
 const EditSubCategory = ({ close, data, fetchData }) => {
     const [subCategoryData, setSubCategoryData] = useState({

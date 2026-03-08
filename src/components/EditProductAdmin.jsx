@@ -12,12 +12,12 @@ import SummaryApi from '../common/SummaryApi';
 import AxiosToastError from '../utils/AxiosToastError';
 import successAlert from '../utils/SuccessAlert';
 import { useEffect } from 'react';
-import uploadToCloudinary from '../utils/Cloudinary';
+import uploadToR2 from '../utils/UploadR2';
 import toast from 'react-hot-toast';
 
-const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
+const EditProductAdmin = ({ close, data: propsData, fetchProductData }) => {
   const [data, setData] = useState({
-    _id : propsData._id,
+    _id: propsData._id,
     name: propsData.name,
     image: propsData.image,
     category: propsData.category,
@@ -31,7 +31,7 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
   })
   const [imageLoading, setImageLoading] = useState(false)
   const [ViewImageURL, setViewImageURL] = useState("")
-  const [imageUploadURL , setImageUploadURL] = useState("")
+  const [imageUploadURL, setImageUploadURL] = useState("")
   const allCategory = useSelector(state => state.product.allCategory)
   const [selectCategory, setSelectCategory] = useState("")
   const [selectSubCategory, setSelectSubCategory] = useState("")
@@ -59,7 +59,7 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
       return
     }
     setImageLoading(true)
-    const response = await uploadToCloudinary(file)
+    const response = await uploadToR2(file)
 
     setData((preve) => {
       return {
@@ -74,14 +74,14 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
   const handleUploadImageURL = async (e) => {
     e.preventDefault();
     console.log(imageUploadURL)
-    if(!imageUploadURL){
+    if (!imageUploadURL) {
       toast.error("please enter the URL");
-    }else{
+    } else {
       setImageLoading(true);
       setData((preve) => {
         return {
           ...preve,
-          image: [...preve.image, imageUploadURL ]
+          image: [...preve.image, imageUploadURL]
         }
       })
       setImageUploadURL("")
@@ -144,7 +144,7 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
 
       if (responseData.success) {
         successAlert(responseData.message)
-        if(close){
+        if (close) {
           close()
         }
         fetchProductData()
@@ -176,7 +176,7 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
           <div className='p-2   bg-white shadow-md flex items-center justify-between'>
             <h2 className='font-semibold'>Upload Product</h2>
             <button onClick={close}>
-              <IoClose size={20}/>
+              <IoClose size={20} />
             </button>
           </div>
           <div className='grid p-3'>
@@ -230,7 +230,7 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
                       accept='image/*'
                       onChange={handleUploadImage}
                     />
-                    
+
                   </label>
                   <p>---or---</p>
                   <input
@@ -238,10 +238,10 @@ const EditProductAdmin = ({ close ,data : propsData,fetchProductData}) => {
                     type='text'
                     placeholder='Enter image URL'
                     value={imageUploadURL}
-                    onChange={ (e)=>setImageUploadURL(e.target.value) }
+                    onChange={(e) => setImageUploadURL(e.target.value)}
                     className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                   />
-                  <button className='bg-blue-300 p-2 rounded ml-5'   onClick={(e)=>handleUploadImageURL(e) }   >Add Image</button>
+                  <button className='bg-blue-300 p-2 rounded ml-5' onClick={(e) => handleUploadImageURL(e)}   >Add Image</button>
                   {/**display uploded image*/}
                   <div className='flex flex-wrap gap-4'>
                     {

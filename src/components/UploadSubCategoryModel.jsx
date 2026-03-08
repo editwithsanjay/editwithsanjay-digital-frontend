@@ -7,7 +7,7 @@ import SummaryApi from '../common/SummaryApi';
 import toast from 'react-hot-toast';
 import AxiosToastError from '../utils/AxiosToastError';
 import { useEffect } from 'react';
-import uploadToCloudinary from '../utils/Cloudinary';
+import uploadToR2 from '../utils/UploadR2';
 
 const UploadSubCategoryModel = ({ close, fetchData }) => {
     const [subCategoryData, setSubCategoryData] = useState({
